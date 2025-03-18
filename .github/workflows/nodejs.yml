@@ -35,8 +35,9 @@ jobs:
           echo 'module.exports = { testFunction: () => true };' > index.js
           echo 'const { testFunction } = require("./index.js"); test("Simple test", () => { expect(testFunction()).toBe(true); });' > index.test.js
           echo '{"scripts":{"test":"jest"},"dependencies":{},"devDependencies":{"jest":"^29.7.0"}}' > package.json
+          chmod +x node_modules/.bin/jest
       
       - name: Run tests
-        run: npm test
+        run: npx jest
 
       
